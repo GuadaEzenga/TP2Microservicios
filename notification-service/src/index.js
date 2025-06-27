@@ -1,22 +1,15 @@
 const express = require('express');
-const mongoose = require('mongoose');
-require('dotenv').config();
-const notificationRoutes = require('../src/routes/notificationRoutes');
-const connectDB = require('../src/config/db');
+const dotenv = require('dotenv');
+const connectDB = require('./config/db');
+
+dotenv.config();
 connectDB();
-
-
-
 
 const app = express();
 app.use(express.json());
 
-mongoose.connect(process.env.MONGO_URI)
-  .then(() => console.log('DB conectada'))
-  .catch(err => console.error(err));
-
+const notificationRoutes = require('./routes/notificationRoutes');
 app.use('/api/notifications', notificationRoutes);
 
-app.listen(process.env.PORT, () => {
-  console.log(`Notification Service corriendo en el puerto ${process.env.PORT}`);
-});
+const PORT = process.env.PORT || 3004;
+app.listen(PORT, () => console.log(`📡 Notification Service en puerto ${PORT}`));
