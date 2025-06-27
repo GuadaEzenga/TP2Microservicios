@@ -29,7 +29,7 @@ Servicio para la gestión de eventos dentro del sistema de conferencias y evento
 1. Clonar el repositorio:
 
 ```bash
-git clone https://github.com/tu-usuario/event-service.git
+git clone https://github.com/GuadaEzenga/TP2Microservicios.git
 cd event-service
 
 2. Instalar dependecias:
@@ -40,7 +40,7 @@ npm install
 
 PORT=3001
 MONGO_URI=mongodb://localhost:27017/eventsdb
-JWT_SECRET=miclaveultrasecreta
+JWT_SECRET=guada123
 
 4. Inicia el servidor
 
